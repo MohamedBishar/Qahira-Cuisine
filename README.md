@@ -49,6 +49,5 @@ Rename your photos to match these exact filenames and drop them into the
 
 ## Note on reservations
 `localStorage` only saves data on the device/browser it was submitted from
-— it's not shared across visitors. Great for a hackathon demo; a natural
-"next step" to mention to judges is adding a real backend + database so
-bookings sync across everyone visiting the live site.
+— it's not shared across visitors.
+
