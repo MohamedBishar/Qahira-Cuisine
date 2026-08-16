@@ -2,7 +2,7 @@
 // each item has a name, description, price, and an image filename
 const menu = {
   starters: [
-    { name: "Duqqa-Crusted Halloumi", desc: "Seared halloumi, hazelnut duqqa, wild honey.", price: "KSh 850", img: "dish-duqqa-halloumi.jpg" },
+    { name: "samosa", desc: "Seared halloumi, hazelnut duqqa, wild honey.", price: "KSh 850", img: "dish-duqqa-halloumi.jpg" },
     { name: "Molokhia Veloute", desc: "Silky jute-leaf soup, garlic-coriander taqleya, crisp pita.", price: "KSh 700", img: "dish-molokhia-veloute.jpg" },
     { name: "Sambousek Trio", desc: "Lamb, spinach-feta and spiced lentil pastries.", price: "KSh 900", img: "dish-sambousek-trio.jpg" },
   ],
