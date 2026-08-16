@@ -2,11 +2,12 @@
 // each item has a name, description, price, and an image filename
 const menu = {
   starters: [
-    { name: "Samosa", desc: "Chicken Samosa, Beef Samosa, Veg Samosa", price: "KSh 850", img: "soamosa.jpg" },
-    { name: "Chapati", desc: "Chapati and Egg, Chapati and Meat, Chapati and Beans.", price: "KSh 700", img: "chapati meal.jpg" },
+    { name: "Duqqa-Crusted Halloumi", desc: "Seared halloumi, hazelnut duqqa, wild honey.", price: "KSh 850", img: "dish-duqqa-halloumi.jpg" },
+    { name: "Molokhia Veloute", desc: "Silky jute-leaf soup, garlic-coriander taqleya, crisp pita.", price: "KSh 700", img: "dish-molokhia-veloute.jpg" },
+    { name: "Sambousek Trio", desc: "Lamb, spinach-feta and spiced lentil pastries.", price: "KSh 900", img: "dish-sambousek-trio.jpg" },
   ],
   mains: [
-    { name: "Somali Breakfast", desc: "Pan-roasted perch, caramelised onion rice, cumin broth.", price: "KSh 2,400", img: "somali breakfast.jpg" },
+    { name: "Nile Perch Sayadeya", desc: "Pan-roasted perch, caramelised onion rice, cumin broth.", price: "KSh 2,400", img: "dish-nile-perch-sayadeya.jpg" },
     { name: "Hamam Mahshi", desc: "Roast pigeon stuffed with freekeh, pomegranate glaze.", price: "KSh 2,800", img: "dish-hamam-mahshi.jpg" },
     { name: "Kofta Royale", desc: "Charcoal-grilled beef kofta, smoked tomato, tahini.", price: "KSh 1,950", img: "dish-kofta-royale.jpg" },
     { name: "Koshari Deluxe", desc: "The Cairo street classic, refined - crispy shallots, aged vinegar.", price: "KSh 1,400", img: "dish-koshari-deluxe.jpg" },
@@ -101,95 +102,4 @@ revealItems.forEach(function (el) {
 const formTypeInput = document.getElementById("formType");
 const roomRow = document.getElementById("roomRow");
 
-const switchTabs = document.querySelectorAll(".form-switch .tab");
-switchTabs.forEach(function (tab) {
-  tab.addEventListener("click", function () {
-    switchTabs.forEach(function (t) { t.classList.remove("active"); });
-    tab.classList.add("active");
-
-    if (tab.dataset.form === "room") {
-      formTypeInput.value = "room";
-      roomRow.hidden = false;
-    } else {
-      formTypeInput.value = "table";
-      roomRow.hidden = true;
-    }
-  });
-});
-
-// clicking "Book" on a room card sends you to the reserve page
-// with that room pre-selected
-const bookButtons = document.querySelectorAll(".book-room");
-bookButtons.forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    const roomName = encodeURIComponent(btn.dataset.room);
-    window.location.href = "reserve.html?type=room&room=" + roomName;
-  });
-});
-
-// if we arrived on reserve.html from a "Book" button, open the Room tab
-// and select the right suite automatically
-if (formTypeInput && roomRow) {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("type") === "room") {
-    const roomTabBtn = document.querySelector('.form-switch .tab[data-form="room"]');
-    if (roomTabBtn) roomTabBtn.click();
-
-    const roomSelect = document.getElementById("roomSelect");
-    const chosenRoom = params.get("room");
-    if (roomSelect && chosenRoom) {
-      roomSelect.value = chosenRoom;
-    }
-  }
-}
-
-// saving the reservation form
-// there's no backend, so we just save it in localStorage
-const reserveForm = document.getElementById("reserveForm");
-const formStatus = document.getElementById("formStatus");
-
-function getSavedReservations() {
-  const saved = localStorage.getItem("qahira_reservations");
-  if (!saved) return [];
-  return JSON.parse(saved);
-}
-
-if (reserveForm) {
-  reserveForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(reserveForm);
-    const name = formData.get("name").trim();
-    const contact = formData.get("contact").trim();
-    const date = formData.get("date");
-
-    if (!name || !contact || !date) {
-      formStatus.textContent = "Please fill in your name, contact and date.";
-      formStatus.className = "form-status err";
-      return;
-    }
-
-    const reservations = getSavedReservations();
-
-    const newBooking = {
-      id: reservations.length + 1,
-      type: formData.get("type"),
-      name: name,
-      contact: contact,
-      date: date,
-      guests: formData.get("guests"),
-      room: formData.get("room"),
-      nights: formData.get("nights"),
-      notes: formData.get("notes"),
-    };
-
-    reservations.push(newBooking);
-    localStorage.setItem("qahira_reservations", JSON.stringify(reservations));
-
-    formStatus.textContent = "Reservation received! Reference #" + newBooking.id + " - we'll confirm shortly.";
-    formStatus.className = "form-status ok";
-
-    reserveForm.reset();
-    roomRow.hidden = formTypeInput.value !== "room";
-  });
-}
+const switchTabs = document.query
