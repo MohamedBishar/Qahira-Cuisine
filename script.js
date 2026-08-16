@@ -7,7 +7,7 @@ const menu = {
     { name: "Sambousek Trio", desc: "Lamb, spinach-feta and spiced lentil pastries.", price: "KSh 900", img: "dish-sambousek-trio.jpg" },
   ],
   mains: [
-    { name: "Nile Perch Sayadeya", desc: "Pan-roasted perch, caramelised onion rice, cumin broth.", price: "KSh 2,400", img: "dish-nile-perch-sayadeya.jpg" },
+    { name: "Somali Breakfast", desc: "Pan-roasted perch, caramelised onion rice, cumin broth.", price: "KSh 2,400", img: "dish-nile-perch-sayadeya.jpg" },
     { name: "Hamam Mahshi", desc: "Roast pigeon stuffed with freekeh, pomegranate glaze.", price: "KSh 2,800", img: "dish-hamam-mahshi.jpg" },
     { name: "Kofta Royale", desc: "Charcoal-grilled beef kofta, smoked tomato, tahini.", price: "KSh 1,950", img: "dish-kofta-royale.jpg" },
     { name: "Koshari Deluxe", desc: "The Cairo street classic, refined - crispy shallots, aged vinegar.", price: "KSh 1,400", img: "dish-koshari-deluxe.jpg" },
